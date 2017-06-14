@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SettingsDialog.OnColorSelectedListener {
 
     private DrawingView drawView;
     private FloatingActionButton fab;
-
+    DialogFragment settingsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
 
         // Create and show the dialog.
-        DialogFragment newFragment = SettingsDialog.newInstance();
-        newFragment.show(ft, "dialog");
+        settingsDialog = SettingsDialog.newInstance();
+        settingsDialog.show(ft, "dialog");
     }
 
+    @Override
+    public void onColorSelected(int position) {
+        settingsDialog.dismiss();
+        drawView.setPaintColor(getResources().getColor(SettingsDialog.colors[position]));
+    }
 }

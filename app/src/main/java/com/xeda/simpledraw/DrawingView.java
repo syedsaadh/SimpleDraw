@@ -77,4 +77,7 @@ public class DrawingView extends View {
         invalidate();
         return true;
     }
+    public void setPaintColor(int color){
+        drawPaint.setColor(color);
+    }
 }
