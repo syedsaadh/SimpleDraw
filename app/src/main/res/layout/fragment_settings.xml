@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
             android:gravity="center_vertical">
             <TextView
                 android:layout_width="wrap_content"
@@ -35,14 +34,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginTop="16dp">
             <GridLayout
                 android:id="@+id/colors_grid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:columnCount="4">
-
             </GridLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/eraser"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_eraser"/>
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>

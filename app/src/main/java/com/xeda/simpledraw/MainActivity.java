@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity implements SettingsDialog.OnColorSelectedListener {
+public class MainActivity extends AppCompatActivity implements SettingsDialog.OnSettingsSelectedListener {
 
     private DrawingView drawView;
     private FloatingActionButton fab;
@@ -52,5 +52,17 @@ public class MainActivity extends AppCompatActivity implements SettingsDialog.On
     public void onColorSelected(int position) {
         settingsDialog.dismiss();
         drawView.setPaintColor(getResources().getColor(SettingsDialog.colors[position]));
+    }
+
+    @Override
+    public void onBrushSelected(int position) {
+        settingsDialog.dismiss();
+        drawView.setBrushSize(SettingsDialog.brushSizes[position]);
+    }
+
+    @Override
+    public void onEraserSelected() {
+        settingsDialog.dismiss();
+        drawView.setPaintColor(getResources().getColor(R.color.md_white_1000));
     }
 }

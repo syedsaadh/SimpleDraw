@@ -21,7 +21,8 @@ public class DrawingView extends View {
     //drawing and canvas paint
     private Paint drawPaint, canvasPaint;
     //initial color
-    private int paintColor = 0xFF665500;
+    private int paintColor = getResources().getColor(SettingsDialog.colors[0]);
+    private int strokeWidth = SettingsDialog.brushSizes[3];
     //canvas
     private Canvas drawCanvas;
     //canvas bitmap
@@ -36,7 +37,7 @@ public class DrawingView extends View {
         drawPaint = new Paint();
         drawPaint.setColor(paintColor);
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(20);
+        drawPaint.setStrokeWidth(strokeWidth);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -78,6 +79,11 @@ public class DrawingView extends View {
         return true;
     }
     public void setPaintColor(int color){
+        invalidate();
         drawPaint.setColor(color);
+    }
+    public void setBrushSize(int size){
+        invalidate();
+        drawPaint.setStrokeWidth(size);
     }
 }
